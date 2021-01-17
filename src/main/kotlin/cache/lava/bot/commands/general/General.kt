@@ -1,4 +1,4 @@
-package cache.lava.bot.commands
+package cache.lava.bot.commands.general
 
 import me.devoxin.flight.api.Context
 import me.devoxin.flight.api.annotations.Command
