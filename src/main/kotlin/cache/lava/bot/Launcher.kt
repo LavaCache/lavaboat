@@ -6,6 +6,8 @@ import me.devoxin.flight.api.CommandClient
 import me.devoxin.flight.api.CommandClientBuilder
 import net.dv8tion.jda.api.JDA
 import net.dv8tion.jda.api.JDABuilder
+import net.dv8tion.jda.api.OnlineStatus
+import net.dv8tion.jda.api.entities.Activity
 import net.dv8tion.jda.api.requests.GatewayIntent
 import net.dv8tion.jda.api.utils.cache.CacheFlag
 
@@ -32,7 +34,10 @@ object Launcher {
     commandClient.commands.register("cache.lava.bot.commands")
     
     jda = JDABuilder.createLight(config.get("bot.token"))
-      .addEventListeners(JDAListener(), commandClient)
+      .setStatus(OnlineStatus.DO_NOT_DISTURB)
+      .setActivity(Activity.listening(
+        "${config.get<List<String>>("bot.prefixes")[0]}help"
+      )).addEventListeners(JDAListener(), commandClient)
       .enableIntents(GatewayIntent.GUILD_MESSAGES)
       .disableCache(
         CacheFlag.ACTIVITY,
