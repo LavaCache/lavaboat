@@ -26,7 +26,7 @@ object Launcher {
       .addEventListeners(FlightListener())
       .setOwnerIds(* config.get<List<String>>("bot.owners").toTypedArray())
       .setPrefixes(config.get<List<String>>("bot.prefixes"))
-      .configureDefaultHelpCommand { enabled = true }
+      .configureDefaultHelpCommand { enabled = false }
       .build()
     
     commandClient.commands.register("cache.lava.bot.commands")
