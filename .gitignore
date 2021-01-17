@@ -1,0 +1,8 @@
+.gradle/
+gradle/
+out/
+build/
+.idea/
+logs/
+
+config.conf
